@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/alosite-simple/', // Cambiar esto por el nombre de tu repositorio
+  base: '/', // Sitio en la raíz del dominio
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
