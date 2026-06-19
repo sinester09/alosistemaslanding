@@ -3,6 +3,7 @@ import { Terminal } from './components/Terminal';
 import { renderProyectos } from './pages/proyectos';
 import { renderServicios } from './pages/servicios';
 import { renderProductos } from './pages/productos';
+import { renderJuegos } from './pages/juegos';
 
 // Router simple
 const routes: Record<string, () => void> = {
@@ -10,6 +11,7 @@ const routes: Record<string, () => void> = {
   '/servicios': renderServicios,
   '/productos': renderProductos,
   '/proyectos': renderProyectos,
+  '/juegos': renderJuegos,
   '/contacto': renderContacto,
 };
 
