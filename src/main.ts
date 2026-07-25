@@ -37,6 +37,16 @@ function updateActiveLinks() {
 function navigate(path: string) {
   window.history.pushState({}, '', path);
   router();
+  closeMobileMenu();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeMobileMenu() {
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle?.setAttribute('aria-expanded', 'false');
+  toggle?.setAttribute('aria-label', 'Abrir menú');
+  links?.classList.remove('open');
 }
 
 // Home page
@@ -203,6 +213,14 @@ function renderContacto() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  navToggle?.addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    const isOpen = links?.classList.toggle('open') ?? false;
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  });
+
   // Handle navigation
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
